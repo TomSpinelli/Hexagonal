@@ -3,7 +3,9 @@ package org.books.infra.controller;
 
 import org.books.domain.Livro;
 import org.books.domain.LivroService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +31,14 @@ public class LivroController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Livro> buscarLivroPorId(Long id){
-        return livroService.buscarLivro(id);
+    public Livro buscarLivroPorId(Long id){
+
+        Optional<Livro> livroOptional = livroService.buscarLivro(id);
+
+        if (livroOptional.isPresent()) {
+            return livroOptional.get();
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado");
+        }
     }
 }
