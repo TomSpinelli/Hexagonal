@@ -1,4 +1,4 @@
-package org.books.domain;
+package org.books.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,15 +11,18 @@ public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String titulo;
     private String autor;
     private int ano;
+
+    public Livro() {
+    }
 
     public Livro(Long id, String titulo, String autor, int ano) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
+        this.ano = ano;
     }
 
     public Long getId() {

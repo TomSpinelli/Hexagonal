@@ -1,8 +1,8 @@
 package org.books.infra.controller;
 
 
-import org.books.domain.Livro;
-import org.books.domain.LivroService;
+import org.books.domain.model.Livro;
+import org.books.domain.service.LivroService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -31,7 +31,7 @@ public class LivroController {
     }
 
     @GetMapping("/{id}")
-    public Livro buscarLivroPorId(Long id){
+    public Livro buscarLivroPorId(@PathVariable  Long id){
 
         Optional<Livro> livroOptional = livroService.buscarLivro(id);
 
@@ -41,4 +41,5 @@ public class LivroController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado");
         }
     }
+
 }

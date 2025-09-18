@@ -1,6 +1,6 @@
-package org.books.application;
+package org.books.application.port;
 
-import org.books.domain.Livro;
+import org.books.domain.model.Livro;
 import java.util.List;
 
 public interface LivroRepositoryPort {

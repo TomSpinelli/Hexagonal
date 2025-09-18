@@ -1,7 +1,7 @@
-package org.books.infra.repository;
+package org.books.infra.adapter.repository;
 
 
-import org.books.domain.Livro;
+import org.books.domain.model.Livro;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
